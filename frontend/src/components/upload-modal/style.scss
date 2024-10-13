@@ -1,0 +1,9 @@
+.modal-for-add-post {
+  .modal-content {
+    .text-area-for-add-caption {
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
