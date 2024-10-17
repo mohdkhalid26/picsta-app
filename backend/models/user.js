@@ -39,7 +39,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    bio: {
+    tagline: {
       type: String,
     },
     images: [imageSchema],

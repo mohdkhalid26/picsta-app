@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import UploadModal from "../../upload-modal";
 import axios from "axios"; // Import Axios
-import { MdOutlineAddPhotoAlternate } from "react-icons/md";
+import { CiCirclePlus } from "react-icons/ci";
+import { Link } from "react-router-dom";
+
 import AllPost from "./AllPost";
+import AuthContext from "../../../context/AuthContext";
 
 const FeedBar = () => {
+  const { user } = useContext(AuthContext);
   const [imagePreview, setImagePreview] = useState("/dp.jpg");
   const [showModal, setShowModal] = useState(false);
   const [caption, setCaption] = useState(""); // State to hold caption
@@ -49,16 +53,16 @@ const FeedBar = () => {
   };
 
   return (
-    <div className=" w-3/5 h-full flex items-center justify-center">
+    <div className=" w-[55%] h-full flex items-center justify-center">
       <div className=" w-full h-full flex items-center justify-center">
         <div className=" w-full h-full flex items-center justify-start flex-col p-2 gap-2">
-          <div className=" w-full flex items-center justify-center flex-col">
+          <div className=" w-full flex items-end justify-between ">
             <label
               htmlFor="addPost"
               className=" flex items-center justify-center flex-col cursor-pointer group"
             >
-              <MdOutlineAddPhotoAlternate className=" text-3xl text-[#A89BDB]" />
-              <span className=" group-hover:underline montserrat_regular text-sm font-bold text-[#A89BDB]">
+              <CiCirclePlus className=" text-3xl text-[#A89BDB]" />
+              <span className=" group-hover:underline montserrat_regular text-[10px] font-bold text-[#A89BDB] leading-none">
                 Add Post
               </span>
             </label>
@@ -77,8 +81,20 @@ const FeedBar = () => {
                 closeModal={() => setShowModal(false)} // Pass closeModal function
               />
             )}
+            {user.tagline ? (
+              <span className=" text-sm font-medium text-[#A89BDB] pacifico_heading leading-none">
+                {user.tagline}
+              </span>
+            ) : (
+              <Link
+                to="/profile"
+                className=" text-sm font-medium text-[#A89BDB] pacifico_heading leading-none underline cursor-pointer mb-1"
+              >
+                {"Add Tagline"}
+              </Link>
+            )}
           </div>
-          <AllPost/>
+          <AllPost />
         </div>
       </div>
     </div>

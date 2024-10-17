@@ -7,7 +7,7 @@ const path = require("path");
 async function createUser(req, res) {
   try {
     const { body } = req;
-    const { fullname, username, email, password } = body;
+    const { fullname, username, email, password, tagline } = body;
 
     if (!fullname || !username || !email || password.length < 6) {
       return res.status(400).json({ error: "Invalid input data" });
@@ -164,7 +164,12 @@ async function loginUser(req, res) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
-    const payload = { id: user.id, fullname : user.fullname, username : user.username };
+    const payload = {
+      id: user.id,
+      fullname: user.fullname,
+      username: user.username,
+      tagline: user.tagline,
+    };
     const token = generateToken(payload);
 
     res.cookie("token", token, {
@@ -187,13 +192,14 @@ async function handleCheckAuth(req, res) {
       if (!user) {
         return res.status(404).json({ error: "User not found" });
       }
-      
+
       res.status(200).json({
         isAuthenticated: true,
         user: {
           id: user._id,
           fullname: user.fullname,
           username: user.username,
+          tagline: user.tagline,
           profileImage: user.profileImage || "/no-dp.png",
         },
       });

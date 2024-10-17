@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router";
-import Navbar from "../../components/Layout/Navbar/index";
 import SidebarLeft from "../../components/Layout/SidebarLeft/index";
 import SidebarRight from "../../components/Layout/SidebarRight/index";
 import FeedBar from "../../components/Layout/FeedBar/index";
@@ -11,16 +10,19 @@ function Home() {
   const path = usePathname();
 
   return (
-    <div className=" flex items-center justify-start flex-wrap w-full h-screen relative overflow-hidden">
-      <Navbar />
-      <SidebarLeft />
-      <Routes>
-        <Route path="/" element={<FeedBar />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/profile/edit" element={<EditProfile />} />
-        <Route path="/updatepassword" element={<UpdatePassword />} />
-      </Routes>
-      {path === "/" ? <SidebarRight /> : null}
+    <div className=" flex items-center justify-center flex-wrap w-full h-screen relative overflow-hidden">
+      <div className=" flex items-center justify-center flex-wrap max-w-[1600px] w-full h-screen relative overflow-hidden">
+        <div className=" flex items-center justify-start flex-wrap w-[88%] h-screen relative overflow-hidden">
+          <SidebarLeft />
+          <Routes>
+            <Route path="/" element={<FeedBar />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/edit" element={<EditProfile />} />
+            <Route path="/updatepassword" element={<UpdatePassword />} />
+          </Routes>
+          {path === "/" ? <SidebarRight /> : null}
+        </div>
+      </div>
     </div>
   );
 }

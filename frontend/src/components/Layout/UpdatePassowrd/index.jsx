@@ -64,7 +64,7 @@ const UpdatePassword = () => {
   return (
     <div className="update-password-main w-[80%] h-full flex items-center justify-center">
       <div className="update-password-container h-full w-full flex items-center justify-center">
-        <div className="update-password h-full flex items-start mt-[88px] justify-center">
+        <div className="update-password h-full flex items-center justify-center">
           <div className=" h-[410px] border-[#A89BDB] border-2 rounded-2xl flex items-center justify-center overflow-hidden media-max-468px:h-[320px] media-max-408px:flex-col media-max-408px:h-auto media-max-408px:w-full">
             <div className=" flex items-center justify-center flex-col bg-[#A89BDB] h-full px-5 gap-2 media-max-468px:px-3 media-max-408px:w-full media-max-408px:py-3 media-max-408px:px-0">
               <span className=" w-[60px] h-[60px] rounded-[50%] bg-white flex items-center justify-center media-max-468px:w-[42px] media-max-468px:h-[42px]">

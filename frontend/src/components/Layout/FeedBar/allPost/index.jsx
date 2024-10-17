@@ -9,26 +9,26 @@ function AllPost() {
   const { user } = useContext(AuthContext);
   const arr = [img1, img2, img3];
   return (
-    <div className="all-post w-full flex items-center justify-start flex-col gap-8 h-[79%] overflow-x-hidden overflow-y-scroll montserrat_regular text-white">
+    <div className="all-post w-3/4 flex items-center justify-start flex-col gap-8 overflow-x-hidden overflow-y-scroll montserrat_regular text-white">
       {arr?.map((data, i) => {
         return (
           <div
             key={i}
-            className="post w-full flex items-center justify-center flex-col gap-2 p-2 bg-[#A89BDB] rounded-[4px]"
+            className="post w-full flex items-center justify-center flex-col gap-2 pb-4 border-b border-b-[#A89BDB] "
           >
-            <div className="id-info-div w-full flex items-center justify-start gap-2 relative">
+            <div className="id-info-div w-full flex items-center justify-start gap-2 relative text-[#A89BDB] ">
               <img
                 src={user?.profileImage}
                 className=" w-8 h-8 rounded-[50%]"
                 alt="dp"
               />
-              <span className=" text-xs">{user?.username}</span>
+              <span className=" text-xs font-medium">{user?.username}</span>
               <span className=" absolute right-0 text-2xl cursor-pointer">
                 <HiOutlineDotsHorizontal />
               </span>
             </div>
-            <img src={data} alt="post img" className=" w-1/4 rounded-[4px]" />
-            <p className=" text-sm">
+            <img src={data} alt="post img" className=" w-full " />
+            <p className=" text-sm  text-[#A89BDB] font-medium  text-justify">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
               doloremque iusto voluptatem officia nisi cupiditate amet tempore
               odit ut eaque aliquam ipsa, harum beatae sunt? Cumque consectetur

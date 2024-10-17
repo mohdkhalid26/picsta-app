@@ -8,6 +8,7 @@ const EditProfile = () => {
   const [profileData, setProfileData] = useState({
     fullname: user?.fullname,
     username: user?.username,
+    tagline: user?.tagline,
   });
   const handleProfileImageUpload = async (e) => {
     const file = e.target.files[0];
@@ -36,7 +37,11 @@ const EditProfile = () => {
   function handleSubmit2(e) {
     e.preventDefault();
     console.log(profileData);
-    console.log(user);
+    setProfileData({
+      fullname: "",
+      username: "",
+      tagline: "",
+    });
   }
   return (
     <>
@@ -83,7 +88,17 @@ const EditProfile = () => {
               onChange={(e) => handleFormData2(e)}
             />
           </div>
-
+          <div className=" w-full flex items-center justify-center">
+            <input
+              value={profileData.tagline}
+              name="tagline"
+              required
+              type="text"
+              placeholder="Your Tagline"
+              className=" leading-none text-sm  montserrat_regular font-medium p-2 focus:outline-none focus:text-[#A89BDB] focus:bg-[#E6E1FF] text-[#A89BDB] bg-[#E6E1FF] placeholder-white "
+              onChange={(e) => handleFormData2(e)}
+            />
+          </div>
           <button
             type="submit"
             className=" text-xs montserrat_regular font-bold bg-[#A89BDB] py-2 px-8 text-white "

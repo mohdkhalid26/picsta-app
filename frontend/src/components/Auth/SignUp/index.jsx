@@ -12,6 +12,7 @@ const defaultState = {
   email: "",
   password: "",
   confirmpassword: "",
+  tagline:"",
 };
 function Signup() {
   const navigate = useNavigate();
